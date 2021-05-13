@@ -1,0 +1,17 @@
+version: "3.4"
+
+volumes:
+  db:
+
+services:
+  db:
+    restart: always
+    image: yobasystems/alpine-mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - "db:/var/lib/mysql"
+    hostname: db
+    ports:
+      - "3306:3306"
+    tty: true
